@@ -1,7 +1,8 @@
 import Carousel from 'react-bootstrap/Carousel';
-const CarouselBanner=()=> {
+import './styles/Producitem.css';
+const CarouselBanner = () => {
   return (
-    <Carousel >
+    <Carousel className='pr'>
       <Carousel.Item interval={1000}>
         <img
           className="d-block w-100"
@@ -24,7 +25,7 @@ const CarouselBanner=()=> {
         />
 
         <Carousel.Caption>
-        <h2>NEW SEASON ARRIVALS</h2>
+          <h2>NEW SEASON ARRIVALS</h2>
           <p>CHECKOUT ALL THE TRENDS</p>
         </Carousel.Caption>
       </Carousel.Item>
@@ -38,7 +39,7 @@ const CarouselBanner=()=> {
         />
 
         <Carousel.Caption>
-        <h2>NEW SEASON ARRIVALS</h2>
+          <h2>NEW SEASON ARRIVALS</h2>
           <p>CHECKOUT ALL THE TRENDS</p>
         </Carousel.Caption>
       </Carousel.Item>

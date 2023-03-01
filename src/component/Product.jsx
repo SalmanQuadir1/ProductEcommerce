@@ -109,7 +109,7 @@ const Product = () => {
 
 
             <>
-                <div className="container m-5  " >
+                <div className="container m-5 pr " >
                     <div className="row">
                         <div className="col-md-6">
                             <div class="row">
@@ -159,19 +159,17 @@ const Product = () => {
                                     <div class="color black"></div>
                                 </div>
                             </div>
+                            <b>Quantity:</b><div class="input-group mb-3" style={{ width: '10rem' }}>
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text p-3 rounded-0" onClick={handleButtonMinus}> <i className="fa fa-minus" ></i></span>
+                                </div>
+                                <input style={{ width: '0.1rem' }} type="text" class="form-control text-center" value={count} />
+                                <div class="input-group-append">
+                                    <span class="input-group-text p-3 rounded-0" onClick={handleButtonPlus}><i className="fa fa-plus"></i></span>
+                                </div>
+                            </div>
                             <hr />
                             <div class="row">
-                                <div class="col-md-6">
-                                    <div class="input-group mb-3">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text p-3 rounded-0" onClick={handleButtonMinus}> <i className="fa fa-minus" ></i></span>
-                                        </div>
-                                        <input style={{ width: '0.1rem' }} type="text" class="form-control text-center" value={count} />
-                                        <div class="input-group-append">
-                                            <span class="input-group-text p-3 rounded-0" onClick={handleButtonPlus}><i className="fa fa-plus"></i></span>
-                                        </div>
-                                    </div>
-                                </div>
                                 <div class="col-md-6"><button class="btn btn-danger  addBtn btn-block" onClick={() => dispatch(addCart(product))} title="Add to Cart"><AddShoppingCartIcon /> Add TO Cart</button></div>
                             </div>
 
