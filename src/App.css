@@ -1,0 +1,20 @@
+.nav-link:hover{
+  color:purple !important;
+  font-weight: bold !important;
+}
+a:hover{
+  color:purple !important;
+  outline:1px purple !important;
+  background-color: white !important;
+}
+.bg{
+  background-color:purple !important;
+  color: white !important;
+
+}
+.buttonss{
+  justify-content: space-between !important;
+}
+.dropdown-menu{
+  left:-8rem !important;
+}
