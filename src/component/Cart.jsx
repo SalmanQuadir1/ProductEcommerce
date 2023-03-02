@@ -3,13 +3,15 @@ import { addCart, delCart, delProd } from '../redux/action';
 import { CiCircleRemove } from 'react-icons/ci';
 import { useNavigate } from 'react-router-dom'
 import './styles/cart.css';
+import Checkout from './Checkout';
 
 const Cart = () => {
     const arr = useSelector((state) => state.handleCart);
-    const navigate = useNavigate();
     const dispatch = useDispatch();
+  
+    
     var totalCartPrice = 0;
-
+   
 
     return (
         <>
@@ -71,36 +73,7 @@ const Cart = () => {
                         </table>
                     </div>
                     <div className='col-md-3'>
-                        <div className='card shadow-lg border-0'>
-
-                            <p className=' bg-dark text-white p-2  text-center'>Cart Items({arr.length})</p>
-
-                            <div className='row'>
-                                <div className='col-md-6'>
-                                    <ol>Name
-                                        {arr.map((pro) => (
-
-                                            <li>{pro.productName.toUpperCase()}</li>
-                                        ))}
-                                    </ol>
-                                </div>
-                                <div className='col-md-6'>
-                                    <ul>Price
-                                        {arr.map((pro) => (
-
-                                            <li>&#8377;{pro.price * pro.qty}</li>
-                                        ))}
-                                    </ul>
-                                </div>
-
-                            </div>
-
-
-                            <h5 className='m-3'>Total: <b>&#8377;{totalCartPrice}</b></h5>
-                            <button class="btn btn-danger mx-2 my-2" onClick={()=>navigate('/checkout')}>Checkout </button>
-                            {/* <button class="btn btn-warning m-2" >View Products</button> */}
-
-                        </div>
+                       <Checkout arr={arr} totalCartPrice={totalCartPrice}/>
                     </div>
 
                 </div>

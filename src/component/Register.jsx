@@ -4,13 +4,13 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import './styles/Producitem.css';
-const initialData={
+const initialData = {
   firstName: '',
   lastName: '',
   email: '',
   password: '',
   confirmPassword: '',
-  phone:''
+  phone: ''
 }
 const Register = () => {
   const navigate = useNavigate();
@@ -45,7 +45,7 @@ const Register = () => {
         setTimeout(() => navigate("/login"), 2000);
 
         setRegisterData(initialData);
-      }).catch((error)=>{
+      }).catch((error) => {
         console.log(error);
         toast.error("Something went wrong " + " " + error.status, {
           position: "top-right",
@@ -85,10 +85,10 @@ const Register = () => {
           <form className="" onSubmit={handleSubmit}>
             <input type="text" name="firstName" value={registerData.firstName} className="form-control mt-2" placeholder="Enter FirstName" onChange={getData} />
             <input type="text" name="lastName" value={registerData.lastName} className="form-control mt-2" placeholder="Enter LastName" onChange={getData} />
-            <input type="email" name="email"value={registerData.email} className="form-control mt-2" placeholder="Enter Email" onChange={getData} />
-            <input type="number" name="phone"value={registerData.phone} className="form-control mt-2" placeholder="Enter Phone No." onChange={getData} />
-            <input type="password" name="password"value={registerData.password} className="form-control mt-2" placeholder="Enter Password" onChange={getData} />
-            <input type="text" name="confirmPassword"value={registerData.confirmPassword} className="form-control mt-2" placeholder="Confirm Password" onChange={getData} />
+            <input type="email" name="email" value={registerData.email} className="form-control mt-2" placeholder="Enter Email" onChange={getData} />
+            <input type="number" name="phone" value={registerData.phone} className="form-control mt-2" placeholder="Enter Phone No." onChange={getData} />
+            <input type="password" name="password" value={registerData.password} className="form-control mt-2" placeholder="Enter Password" onChange={getData} />
+            <input type="text" name="confirmPassword" value={registerData.confirmPassword} className="form-control mt-2" placeholder="Confirm Password" onChange={getData} />
             <button className='btn btn-outline-success mt-2'>Sign up </button>
           </form>
         </div>

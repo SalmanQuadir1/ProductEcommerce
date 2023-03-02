@@ -19,6 +19,7 @@ import UpdateProduct from './component/Admin/UpdateProduct';
 import Sidebar from './component/Admin/Sidebar';
 import ProtectedRoutes from './ProtectedRoutes';
 import Checkout from './component/Checkout';
+import Address from './component/Address';
 
 
 
@@ -31,8 +32,8 @@ function App() {
    <Routes>
         <Route exact path='/' element={<Home/>}></Route>
         <Route  path='/AddProduct' element={<ProtectedRoutes Component={AddProduct}></ProtectedRoutes>}></Route>
-        <Route exact path='/updateProduct' element={<UpdateProduct/>}></Route>
-        <Route exact path='/EditProduct' element={<EditProduct/>}></Route>
+        <Route exact path='/updateProduct' element={<ProtectedRoutes Component={UpdateProduct}></ProtectedRoutes>}></Route>
+        <Route exact path='/EditProduct' element={<ProtectedRoutes Component={EditProduct}></ProtectedRoutes>}></Route>
         <Route exact path='/AddCategory' element={<AddCategory/>}></Route>
         <Route exact path='/products' element={<Products/>}></Route>
         <Route exact path='/contact' element={<Contact/>}></Route>
@@ -43,6 +44,8 @@ function App() {
         <Route exact path='/product/:id' element={<Product/>}></Route>
         <Route exact path='/sidebar' element={<Sidebar/>}></Route>
         <Route exact path='/checkout' element={<Checkout/>}></Route>
+        <Route exact path='/address' element={<Address/>}></Route>
+
 
 
       </Routes> 

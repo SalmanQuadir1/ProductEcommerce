@@ -1,5 +1,9 @@
 .removeBtn:hover{
-    color: red !important;
-    font-weight: bold !important;
+    color: purple !important;
+    font-weight: 800 !important;
 
   }
+  .removeBtn{
+    color: red !important;
+  }
+  

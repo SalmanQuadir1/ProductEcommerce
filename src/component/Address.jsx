@@ -1,8 +1,13 @@
 import React from 'react'
+import './styles/Producitem.css';
 
 const Address = () => {
   return (
-    <div>Address</div>
+    <>
+
+    <div className='container pr'>Address</div>
+    
+    </>
   )
 }
 
