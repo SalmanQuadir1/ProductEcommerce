@@ -103,13 +103,24 @@
     border-bottom: 4px solid purple;
 }
 .pr{
-    margin-top: 3rem;
+    margin-top: 7rem;
   }
   /* aboutpage css */
   .ab{
-    margin-top: 5rem;
+    margin-top: 4rem;
   }
   .rg{
     margin-top: 6rem !important;
   }
+  .status{
+    width: 9px;
+    height: 9px;
+    margin-top: 8px;
+    margin-right: 8px;
+  }
+  .inp {
+    
+    width: 65% !important;
+    margin: auto !important;
+}
 

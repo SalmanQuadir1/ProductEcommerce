@@ -7,6 +7,9 @@ a:hover{
   outline:1px purple !important;
   background-color: white !important;
 }
+.nav-link{
+  color: black !important;
+}
 .bg{
   background-color:purple !important;
   color: white !important;
@@ -16,5 +19,5 @@ a:hover{
   justify-content: space-between !important;
 }
 .dropdown-menu{
-  left:-8rem !important;
+  left:-4rem !important;
 }

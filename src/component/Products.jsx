@@ -5,7 +5,7 @@ import ProductService from "../service/productService";
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import axios from "axios";
 import { addCart } from "../redux/action";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 
 
@@ -17,6 +17,7 @@ const Products = () => {
   const [loading, setLoading] = useState(false);
   let componentMounted = true;
   const dispatch = useDispatch();
+
 
 
 
@@ -84,7 +85,7 @@ const Products = () => {
   const ShowProducts = () => {
     return (
       <>
-        <div className="buttons text-center">
+        <div className="buttons text-center" >
 
           <button className="btn btn-outline-dark me-2" onClick={() => setFilter(data)}>All</button>
           <button className="btn btn-outline-dark me-2" onClick={() => filterProduct("men's clothing")}>Men's Clothing</button>
@@ -102,23 +103,42 @@ const Products = () => {
 
             <>
 
-              <div className="col-md-3 mb-4 mt-4"  >
-                <div className="card h-100  shadow-lg border-0  text-center p-1" >
+              <div className="col-md-3 mb-4 mt-4 border-0" key={product.id} >
+                <div className="card h-100  shadow-lg border-0  text-center p-1 " >
                   <Link to={`/product/${product.id}`}>
                     <img src={`data:image/png;base64,${product.images[0].image} `}
                       className="card-img-top" alt={product.name} height="300px" />
                   </Link>
                   <div className="card-body">
                     <h5 className="card-title mb-0">{product.productName}</h5>
-                    <p className="card-text">&#8377;{product.price}</p>
+                    <div className="row">
+                      <div className="col-md-6">
+
+                        <b><p className="card-text">&#8377;{product.price}</p></b>
+                      </div>
+                      <div className="col-md-6">
+                        <div className="row">
+                          <div className="col-md-3 pt-1">
+                            <div className="d-flex bg-success rounded-circle status"></div>
+
+                          </div>
+                          <div className="col-md-9 px-0">
+                            <p className="card-title mb-0">{product.status}</p>
+
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+
                     <p className="card-text">
                       <Rating name="read-only" precision={0.5} defaultValue={5} readOnly />
                     </p>
                     <Link onClick={() => {
                       dispatch(addCart(product));
-                    
+
                     }}
-                      className="btn btn-danger"><AddShoppingCartIcon /> Add To Cart</Link>
+                      className="btn btn-danger "><AddShoppingCartIcon /> Add To Cart</Link>
                   </div>
                 </div>
               </div>
@@ -158,7 +178,7 @@ const Products = () => {
 
           </div>
         </div>
-        <div className="row justify-content-center">
+        <div className="row justify-content-center border-0">
           {loading ? <Loading /> : <ShowProducts />}
         </div>
       </div>

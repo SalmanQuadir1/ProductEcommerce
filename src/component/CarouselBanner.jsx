@@ -2,7 +2,7 @@ import Carousel from 'react-bootstrap/Carousel';
 import './styles/Producitem.css';
 const CarouselBanner = () => {
   return (
-    <Carousel className='pr'>
+    <Carousel className='ab'>
       <Carousel.Item interval={1000}>
         <img
           className="d-block w-100"

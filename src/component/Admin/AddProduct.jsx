@@ -6,6 +6,7 @@ import { Avatar, Card, CardActions, CardContent, CardHeader, CardMedia, IconButt
 import { blue } from "@mui/material/colors";
 import axios from "axios";
 import PreviewImage from "./PreviewImage";
+import '../styles/Producitem.css';
 
 
 const initialProduct = {
@@ -22,6 +23,9 @@ const initialProduct = {
 const AddProduct = () => {
   const [files, setFiles] = useState([]);
   const [product, setProduct] = useState(initialProduct);
+  const token = JSON.parse(localStorage.getItem('Login token'));
+  console.log("token...",token);
+  
 
   const handleChanges = (e) => {
     const value = e.target.value;
@@ -48,6 +52,7 @@ const AddProduct = () => {
       .post("http://localhost:8089/product/updateProduct", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
+          "Authorization": `Bearer ${token}`,
         },
       })
 
@@ -89,22 +94,13 @@ const AddProduct = () => {
 
   return (
     <>
-      <Card sx={{ marginTop: 10 }}>
-        <CardHeader avatar={
-          <Avatar sx={{ bgcolor: blue[500] }} aria-label="Add">
-            A
-          </Avatar>}
-          action={
-            <IconButton aria-label="settings">
-            </IconButton>
-          }
-          title="Add Product"
-        ></CardHeader>
-        <CardContent sx={{ margin: 2 }}>
-          <div className="container ">
+     
+          <div className="container pr ">
             <div className="row">
-              <div className="col-md-8 offset-md-2">
+              <div className="col-md-10 offset-md-1">
                 <div className="card my-4">
+                <h4 className="text-center bg-dark text-white p-2">Add Product</h4>
+
                   <div className="card-body">
                     <form action="" onSubmit={(e) => ProductRegister(e)} encType="multipart/form-data">
                       <div className="mb-3">
@@ -206,9 +202,7 @@ const AddProduct = () => {
               </div>
             </div>
           </div>
-        </CardContent>
 
-      </Card>
 
     </>
   );

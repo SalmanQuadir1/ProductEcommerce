@@ -18,14 +18,8 @@ const Product = () => {
     const [count, setCount] = useState(1);
 
     const CartItems = useSelector((state) => state.handleCart);
-
-    useEffect(() => {
-        localStorage.setItem('cartItems', JSON.stringify(CartItems));
-    }, [CartItems])
-
-
-
     const dispatch = useDispatch();
+   
 
 
 

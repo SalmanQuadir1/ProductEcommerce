@@ -20,6 +20,7 @@ import Sidebar from './component/Admin/Sidebar';
 import ProtectedRoutes from './ProtectedRoutes';
 import Checkout from './component/Checkout';
 import Address from './component/Address';
+import AdminHome from './component/Admin/AdminHome';
 
 
 
@@ -28,32 +29,27 @@ import Address from './component/Address';
 function App() {
   return (
     <>
-   <Navbar/>
-   <Routes>
-        <Route exact path='/' element={<Home/>}></Route>
-        <Route  path='/AddProduct' element={<ProtectedRoutes Component={AddProduct}></ProtectedRoutes>}></Route>
+      <Navbar />
+      <Routes>
+        <Route exact path='/' element={<Home />}></Route>
+        <Route path='/AddProduct' element={<ProtectedRoutes Component={AddProduct}></ProtectedRoutes>}></Route>
         <Route exact path='/updateProduct' element={<ProtectedRoutes Component={UpdateProduct}></ProtectedRoutes>}></Route>
         <Route exact path='/EditProduct' element={<ProtectedRoutes Component={EditProduct}></ProtectedRoutes>}></Route>
-        <Route exact path='/AddCategory' element={<AddCategory/>}></Route>
-        <Route exact path='/products' element={<Products/>}></Route>
-        <Route exact path='/contact' element={<Contact/>}></Route>
-        <Route exact path='/about' element={<About/>}></Route>
-        <Route exact path='/login' element={<Login/>}></Route>
-        <Route exact path='/register' element={<Register/>}></Route>
-        <Route exact path='/cart' element={<Cart/>}></Route>
-        <Route exact path='/product/:id' element={<Product/>}></Route>
-        <Route exact path='/sidebar' element={<Sidebar/>}></Route>
-        <Route exact path='/checkout' element={<Checkout/>}></Route>
-        <Route exact path='/address' element={<Address/>}></Route>
-
-
-
-      </Routes> 
-  
-
-      <ToastContainer/>
-      
-      <Footer/>
+        <Route exact path='/AddCategory' element={<AddCategory />}></Route>
+        <Route exact path='/products' element={<Products />}></Route>
+        <Route exact path='/contact' element={<Contact />}></Route>
+        <Route exact path='/about' element={<About />}></Route>
+        <Route exact path='/login' element={<Login />}></Route>
+        <Route exact path='/register' element={<Register />}></Route>
+        <Route exact path='/cart' element={<Cart />}></Route>
+        <Route exact path='/product/:id' element={<Product />}></Route>
+        <Route exact path='/sidebar' element={<Sidebar />}></Route>
+        <Route exact path='/checkout' element={<Checkout />}></Route>
+        <Route exact path='/address' element={<Address />}></Route>
+        <Route exact path='/adminHome' element={<AdminHome />}></Route>
+      </Routes>
+      <ToastContainer />
+      <Footer />
     </>
   );
 }

@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import AddBusinessOutlinedIcon from '@mui/icons-material/AddBusinessOutlined';
 import { Badge, Button, Typography } from '@mui/material';
 import '../App.css';
+import './styles/navbar.css';
 import LocalMallIcon from '@mui/icons-material/LocalMall';
 import { useSelector } from 'react-redux';
 import axios from 'axios';
@@ -60,8 +61,8 @@ const Navbar = () => {
     }
     return (
         <>
-            <nav class="navbar navbar-expand-lg navbar-dark bg-light  py-3 shadow-sm  w-100 position-fixed " style={{ zIndex: "99", top: "0" }}>
-                <div class="container-fluid">
+            <nav className="navbar navbar-expand-lg navbar-dark azure  py-3 shadow-lg  w-100 position-fixed " style={{ zIndex: "99", top: "0" }}>
+                <div className="container-fluid">
                     <AddBusinessOutlinedIcon color="secondary" fontSize="large" />
                     <Typography
                         className='nav-link'
@@ -81,24 +82,24 @@ const Navbar = () => {
                     >
                         ASTE STORE
                     </Typography>
-                    {/* <Link to="/" class="navbar-brand text-dark fw-bold fs-4 mx-2" href="#">ASTE STORE </Link> */}
-                    <button class="navbar-toggler text-dark bg" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon text-white"></span>
+                    {/* <Link to="/" className="navbar-brand text-dark fw-bold fs-4 mx-2" href="#">ASTE STORE </Link> */}
+                    <button className="navbar-toggler text-dark bg" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span className="navbar-toggler-icon text-white"></span>
                     </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-                            <li class="nav-item">
-                                <Link to="/" class="nav-link active text-dark " aria-current="page" href="#">Home</Link>
+                    <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
+                            <li className="nav-item">
+                                <Link to="/" className="nav-link   " aria-current="page" href="#">Home</Link>
                             </li>
-                            <li class="nav-item">
-                                <Link to="/products" class="nav-link text-dark" href="#">Products</Link>
+                            <li className="nav-item">
+                                <Link to="/products" className="nav-link " href="#">Products</Link>
                             </li>
 
-                            <li class="nav-item">
-                                <Link to="/about" class="nav-link text-dark " href="#" tabindex="-1" aria-disabled="true">About </Link>
+                            <li className="nav-item">
+                                <Link to="/about" className="nav-link  " href="#" tabIndex="-1" aria-disabled="true">About </Link>
                             </li>
-                            <li class="nav-item">
-                                <Link to="/contact" class="nav-link text-dark " href="#" tabindex="-1" aria-disabled="true">Contact </Link>
+                            <li className="nav-item">
+                                <Link to="/contact" className="nav-link  " href="#" tabIndex="-1" aria-disabled="true">Contact </Link>
                             </li>
                            
 
@@ -113,21 +114,21 @@ const Navbar = () => {
                             )}
                             {token != null && (
                                 <>
-                                    <div className="dropdown ">
-                                        <Button variant="contained" color="success" className="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <div className="dropdown  ">
+                                        <Button variant="contained" color="secondary" className="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <RiMapPinUserFill size={25} />
                                         </Button>
 
-                                        <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            <Link class="dropdown-item" href="#">{user.firstName + " " + user.lastName}</Link>
-                                            <Link class="dropdown-item" href="#">{user.username}</Link>
-                                            <Link class="dropdown-item" href="#">Role:{user.role}</Link>
-                                            <div class="dropdown-divider"></div>
+                                        <div className="dropdown-menu"  aria-labelledby="dropdownMenuButton">
+                                            <Link className="dropdown-item" href="#">{user.firstName + " " + user.lastName}</Link>
+                                            <Link className="dropdown-item" href="#">{user.username}</Link>
+                                            <Link className="dropdown-item" href="#">Role:{user.role}</Link>
+                                            <div className="dropdown-divider"></div>
                                             
-                                            <Link class="dropdown-item" to={'/addProduct'}>AddProduct</Link>
+                                            <Link className="dropdown-item" to={'/addProduct'}>AddProduct</Link>
 
 
-                                            <div class="dropdown-divider"></div>
+                                            <div className="dropdown-divider"></div>
                                             <Link className="dropdown-item" onClick={handleLogout} href="/#"><BiLogOutCircle size={20} />&nbsp;Logout</Link>
                                        
                                         </div>

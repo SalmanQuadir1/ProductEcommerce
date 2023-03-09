@@ -1,0 +1,26 @@
+.sidebar{
+    display: block;
+    justify-content: center;
+    flex-direction: column;
+    background-color: black;
+    color: white;
+    height: 100%;
+    margin-top: 4.7rem;
+    padding: 1rem;
+
+
+}
+.sidebar>li{
+    list-style-type: none;
+    text-decoration: none;
+    padding: 3px;
+    margin-top: 1rem;
+    width: 100%;
+    cursor: pointer;
+
+}
+.sidebar>li:hover{
+    background-color: white;
+    color:purple ;
+
+}
