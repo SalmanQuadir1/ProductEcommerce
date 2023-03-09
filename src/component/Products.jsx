@@ -7,7 +7,8 @@ import axios from "axios";
 import { addCart } from "../redux/action";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
-
+import './styles/Products.css';
+import { MdOutlineTableView } from 'react-icons/md';
 
 
 const Products = () => {
@@ -102,46 +103,42 @@ const Products = () => {
           return (
 
             <>
-
               <div className="col-md-3 mb-4 mt-4 border-0" key={product.id} >
-                <div className="card h-100  shadow-lg border-0  text-center p-1 " >
-                  <Link to={`/product/${product.id}`}>
-                    <img src={`data:image/png;base64,${product.images[0].image} `}
-                      className="card-img-top" alt={product.name} height="300px" />
-                  </Link>
-                  <div className="card-body">
-                    <h5 className="card-title mb-0">{product.productName}</h5>
-                    <div className="row">
-                      <div className="col-md-6">
+                <div class="flip-card">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
 
-                        <b><p className="card-text">&#8377;{product.price}</p></b>
-                      </div>
-                      <div className="col-md-6">
-                        <div className="row">
-                          <div className="col-md-3 pt-1">
-                            <div className="d-flex bg-success rounded-circle status"></div>
+                      <div className="card h-100   shadow-lg border-0  text-center  " >
 
-                          </div>
-                          <div className="col-md-9 px-0">
-                            <p className="card-title mb-0">{product.status}</p>
+                        <img src={`data:image/png;base64,${product.images[0].image} `}
+                          className="card-img-top imgMain border-0" alt={product.name} height="270px" />
 
-                          </div>
-
-                        </div>
                       </div>
                     </div>
+                    <div class="flip-card-back">
 
-                    <p className="card-text">
-                      <Rating name="read-only" precision={0.5} defaultValue={5} readOnly />
-                    </p>
-                    <Link onClick={() => {
-                      dispatch(addCart(product));
+                      <div className="card-body mt-5">
+                        <h5 className="card-title mb-0 text-uppercase">{product.productName}</h5>
+                        <b><p className="card-text">&#8377;{product.price}</p></b>
 
-                    }}
-                      className="btn btn-danger "><AddShoppingCartIcon /> Add To Cart</Link>
+                        <div className="d-flex bg-success rounded-circle status"></div>
+                        <p className="card-title mb-0">{product.status}</p>
+
+
+                        <p className="card-text">
+                          <Rating name="read-only" precision={0.5} defaultValue={5} readOnly />
+                        </p>
+                        <Link className="btn btn-warning mx-1" to={`/product/${product.id}`}><MdOutlineTableView  size={20}/>View Prod
+                        </Link>
+                        <Link onClick={() => { dispatch(addCart(product)); }} className="btn btn-danger "><AddShoppingCartIcon /> Add To Cart</Link>
+                      </div>
+
+
+                    </div>
                   </div>
                 </div>
               </div>
+
 
             </>
           )

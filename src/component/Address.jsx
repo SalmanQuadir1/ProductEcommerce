@@ -2,10 +2,18 @@ import React, { useEffect, useState } from 'react'
 import './styles/Producitem.css';
 import { useSelector } from 'react-redux';
 import axios from 'axios';
+
+
+const initialAddress = {
+  street: '',
+  pin: '',
+  city: '',
+  country: '',
+  state: ''
+}
 const Address = () => {
   const Order = useSelector((state) => state.handleOrder);
-  const [formData, setFormData] = useState({
-  });
+  const [address, setAddress] = useState(initialAddress);
   const [countries, setCountries] = useState([]);
   const [states, setStates] = useState([]);
 
@@ -28,30 +36,26 @@ const Address = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    for (let i = 0; i < e.target.length; i++) {
-      setFormData([e.target[i].value]);
-
-    }
-    console.log(formData);
+  
+    console.log(address);
 
   }
+
+
   const handleChange = (e) => {
-    console.log(e.target.value);
-    // for (let i = 0; i < (e.target.length); i++) {
-    //   console.log(e.target[i].value);
 
-    //   // setFormData({ name: e.target[i].value });
-    // }
-  }
-  const handleCountry = (e) => {
     console.log(e.target.value);
+    let value = e.target.value;
     if (e.target.value == 'india' || e.target.value == 'India') {
-      setStates([...states,{name:'Jammu & Kashmir'},{name:'Delhi'},{name:'Maharastra'},{name:'Goa'}]);
-    }else{
-      setStates([{name:'Choose one'}]);
+      setStates([...states, { name: 'Jammu & Kashmir' }, { name: 'Delhi' }, { name: 'Maharastra' }, { name: 'Goa' }]);
+    } else {
+      setStates([{ name: 'Choose one' }]);
     }
 
+    setAddress({...address,[e.target.name]: value });
+
   }
+ 
 
 
   return (
@@ -66,13 +70,13 @@ const Address = () => {
               <div className="col-sm-6">
                 <div className="form-group">
                   <label for="line1">Street Address</label>
-                  <input type="text" onChange={handleChange} className="form-control" placeholder="E.g. 32 Job Street" />
+                  <input type="text" name="street" onChange={handleChange} className="form-control" placeholder="E.g. 32 Job Street" />
                 </div>
               </div>
               <div className="col-sm-6">
                 <div className="form-group">
                   <label for="line1">Address Line 2</label>
-                  <input type="text" onChange={handleChange} className="form-control" placeholder="E.g. Second Floor" />
+                  <input type="text" name="address" onChange={handleChange} className="form-control" placeholder="E.g. Second Floor" />
                 </div>
               </div>
             </div>
@@ -86,10 +90,10 @@ const Address = () => {
               <div className="col-sm-6">
                 <div className="form-group">
                   <label for="line1">Country</label>
-                  <select name="country" onChange={handleCountry} className="form-control" id="">
-                    {countries.map((country,ind) => (
+                  <select name="country" onChange={handleChange} className="form-control" id="">
+                    {countries.map((country, ind) => (
 
-                      <option value={country.name.common}>{ind+1}-{country.name.common}</option>
+                      <option value={country.name.common}>{ind + 1}-{country.name.common}</option>
                     ))}
                   </select>
                 </div>
@@ -97,7 +101,7 @@ const Address = () => {
               <div className="col-sm-6">
                 <div className="form-group">
                   <label for="line1">State</label>
-                  <select name="country" onChange={handleChange} className="form-control" id="">
+                  <select name="state" onChange={handleChange} className="form-control" id="">
                     {states.map((state) => (
 
                       <option value={state.name}>{state.name}</option>
