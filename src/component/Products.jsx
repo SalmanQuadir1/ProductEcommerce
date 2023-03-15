@@ -117,7 +117,7 @@ const Products = () => {
                     </div>
                     <div class="flip-card-back">
 
-                      <div className="card-body mt-5">
+                      <div className="card-body mt-5 mb-1">
                         <h5 className="card-title mb-0 text-uppercase">{product.productName}</h5>
                         <b><p className="card-text">&#8377;{product.price}</p></b>
 

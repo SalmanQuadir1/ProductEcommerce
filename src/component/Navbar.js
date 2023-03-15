@@ -18,6 +18,7 @@ const Navbar = () => {
     const user = JSON.parse(localStorage.getItem('user'));
     console.log("userFullDetail....", user);
    
+    
 
     const navigate = useNavigate();
 

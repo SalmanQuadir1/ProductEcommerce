@@ -1,18 +1,19 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { addCart, delCart, delProd } from '../redux/action';
-import { CiCircleRemove } from 'react-icons/ci';
 import './styles/cart.css';
 import Checkout from './Checkout';
 import { addOrder } from '../redux/action/order';
 import CartProduct from './CartProduct';
 import { useState } from 'react';
+
 const Cart = () => {
     const arr = useSelector((state) => state.handleCart);
+    const [ar, setAr] = useState(arr);
     const dispatch = useDispatch();
     const [totalCartPrice, setTotalCartPrice] = useState(0);
 
     if (arr.length > 0) {
         localStorage.setItem('cartItems', JSON.stringify(arr));
+    
     }
 
 
